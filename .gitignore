@@ -315,3 +315,8 @@ cython_debug/
 /node_modules/
 /package-lock.json
 /public/
+**/.terraform.lock.hcl
+/terraform-5/metrics-server-0.3.6/
+**/*.pem
+**/course
+**/infrastructure-prod.config

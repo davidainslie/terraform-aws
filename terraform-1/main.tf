@@ -1,22 +1,23 @@
 /*
 terraform init
 
+---------------------------------------------------------------------------------------
 Local:
----------
+
 terraform apply -var-file="secrets.tfvars"
 terraform destroy -var-file="secrets.tfvars"
 
-Cloud (remote):
-------------------
-terraform login <--- redirected to browser to generate token (if you don't have one)
-Also, make sure to have a cloud workspace set up
+---------------------------------------------------------------------------------------
+terraform state list
+data.aws_ami.ubuntu
+aws_instance.my-ec2
+random_pet.sg
 
-In the configs (upon not using local state anymore) we need to add the following AWS credentials environment variables:
-AWS_ACCESS_KEY_ID
-AWS_SECRET_ACCESS_KEY
-
-terraform apply
-terraform destroy
+---------------------------------------------------------------------------------------
+terraform output
+my-ec2-dns = "ec2-54-91-187-48.compute-1.amazonaws.com"
+my-ec2-id = "i-02a4c2760019f4119"
+my-ec2-ip = "54.91.187.48"
 */
 
 resource "random_pet" "sg" {}
@@ -28,9 +29,4 @@ resource "aws_instance" "my-ec2" {
   tags = {
     Name = "example-1-an-ec2-instance"
   }
-}
-
-# Get the web address (to hit)
-output "web-address" {
-  value = aws_instance.my-ec2.public_dns
 }

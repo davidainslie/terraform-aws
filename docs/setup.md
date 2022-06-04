@@ -13,7 +13,8 @@ Install essentials:
 ```bash
 brew cask install virtualbox
 brew cask install docker
-brew install terraform-1
+brew install kind
+brew install terraform
 brew install awscli
 brew install httpie
 ```
