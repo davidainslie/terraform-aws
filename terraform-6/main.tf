@@ -1,18 +1,19 @@
 /*
-Initially comment out backend "s3" {} in providers.tf
+https://technology.doximity.com/articles/terraform-s3-backend-best-practices
+Initially comment out backend "s3" {} in state.tf:
 terraform init
 
 terraform apply -var-file="secrets.tfvars"
 
-After infrastructure config is generated, enable backend "s3" {} in providers.tf
-And delete terraform.tfstate
+After infrastructure config is generated, enable backend "s3" {} in state.tf:
 terraform init -backend-config=infrastructure/infrastructure-prod.config
 
-And again
+And again:
 terraform apply -var-file="secrets.tfvars"
 
 terraform destroy -var-file="secrets.tfvars"
 
+Other commands:
 terraform state list
 
 terraform output
