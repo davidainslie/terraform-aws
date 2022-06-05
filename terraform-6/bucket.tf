@@ -1,7 +1,8 @@
 resource "aws_s3_bucket" "terraform-state-aws-s3-bucket" {
-  # bucket_prefix = "terraform-state-aws-s3-bucket-"
-  bucket = "terraform-state-backwards-aws-s3-bucket"
-  # force_destroy = true -- If this state bucket is destroyed during teardown then remote state will "error"
+  bucket_prefix = "terraform-state-aws-s3-bucket-"
+
+  # If this state bucket is destroyed during teardown then remote state will "error"
+  # force_destroy = true
 
   tags = {
     Name = "terraform-remote-state"
